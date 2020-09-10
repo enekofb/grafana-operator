@@ -1,5 +1,5 @@
 ORG?=integreatly
-NAMESPACE?=grafana
+NAMESPACE?=metrics
 PROJECT=grafana-operator
 REG?=quay.io
 SHELL=/bin/bash
@@ -20,7 +20,7 @@ setup/travis:
 
 .PHONY: code/run
 code/run:
-	@operator-sdk up local --namespace=${NAMESPACE}
+	@operator-sdk --verbose up local --namespace=${NAMESPACE}
 
 .PHONY: code/compile
 code/compile:

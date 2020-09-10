@@ -214,6 +214,7 @@ func (r *ReconcileGrafana) getGrafanaAdminUrl(cr *grafanav1alpha1.Grafana, state
 
 	// If AdminUrl specified then we ignore the local instance and use configured url
 	if cr.Spec.AdminUrl != "" {
+		log.Info(fmt.Sprintf("using admin url %s", cr.Spec.AdminUrl))
 		return cr.Spec.AdminUrl, nil
 	}
 
