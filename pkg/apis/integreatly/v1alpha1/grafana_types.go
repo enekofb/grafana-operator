@@ -34,6 +34,7 @@ type GrafanaSpec struct {
 	DataStorage                *GrafanaDataStorage      `json:"dataStorage,omitempty"`
 	Jsonnet                    *JsonnetConfig           `json:"jsonnet,omitempty"`
 	BaseImage                  string                   `json:"baseImage,omitempty"`
+	AdminUrl                   string                   `json:"adminUrl,omitempty"`
 }
 
 type JsonnetConfig struct {

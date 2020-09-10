@@ -211,6 +211,12 @@ func (r *ReconcileGrafana) getGrafanaAdminUrl(cr *grafanav1alpha1.Grafana, state
 	// If preferService is true, we skip the routes and try to access grafana
 	// by using the service.
 	preferService := false
+
+	// If AdminUrl specified then we ignore the local instance and use configured url
+	if cr.Spec.AdminUrl != "" {
+		return cr.Spec.AdminUrl, nil
+	}
+
 	if cr.Spec.Client != nil {
 		preferService = cr.Spec.Client.PreferService
 	}
